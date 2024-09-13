@@ -91,7 +91,8 @@ if (uploaded_file or question) and action:
     
     llm_eval = client.chat.completions.create(
             model="GPT-4o-mini",
-            messages=messages,
+           messages=[
+          {"role": "system", "content":eval_prompt}],
             stream=False).choices[0].message.content
     
     
