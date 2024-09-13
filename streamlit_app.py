@@ -30,13 +30,16 @@ def go_back_to_options():
 
 # Input page where users enter data
 if st.session_state.current_page == "input":
-    question = st.text_area(
-        "Describe a situation involving health technology, policy, or another ethically challenging issue.",
-        placeholder="Describe the Problem"
+    question = st.text_area("Describe a situation involving health technology, policy, or other ethically challenge issue. \
+        for example, you can propose a policy for a QR-code health tracking system or a vaccine mandate. You can \
+        also upload a previously existing or proposed policy/system for evaluation. More information can be found \
+        in our paper: https://www.medrxiv.org/content/10.1101/2024.04.10.24305470v2 \
+        Note: if you are only working with a document, leave this part blank"
     )
 
     action = st.text_area(
-        "Describe how you would like the LLM to assess the situation.",
+        "Describe how you would like the LLM to assess the situation you provided in the section above. This should start with 'recommend if' or 'decide if'. \
+        For example, you could say 'recommend if this system should be considered for further consideration' or 'decide if this should be implemented within a pandemic setting",
         placeholder="Describe the LLM Task in 1 sentence"
     )
 
