@@ -89,8 +89,8 @@ if (uploaded_file or question) and action:
     eval_prompt += ('Original Text: ' + question)
     
     
-    o1_eval = client.chat.completions.create(
-            model="o1-preview",
+    llm_eval = client.chat.completions.create(
+            model="GPT-4o-mini",
             messages=messages,
             stream=False).choices[0].message.content
     
@@ -110,8 +110,8 @@ if (uploaded_file or question) and action:
         if st.button("Show GPT-4o Response"):
             st.session_state.current_page = "gpt4o_response"
         
-        if st.button("Show O1 score"):
-            st.session_state.current_page = "o1_eval"
+        if st.button("Show HHR score"):
+            st.session_state.current_page = "llm_eval"
     
         #if st.button("Show Llama 3 Response"):
          #   st.session_state.current_page = "response_2"
@@ -121,7 +121,7 @@ if (uploaded_file or question) and action:
         if st.button("Back"):
             go_back()
 
-    elif st.session_state.current_page == "o1_eval":
+    elif st.session_state.current_page == "llm_eval":
         st.write(response_2)
         if st.button("Back"):
             go_back()
