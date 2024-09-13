@@ -9,7 +9,13 @@ st.write("Follow the instructions to see how LLMs handle complex situations invo
 #Create an OpenAI client.
 client = OpenAI(api_key=st.secrets["openAI"])
 
-##### need more LLMs
+# Initialize session state for storing responses and navigation
+if 'gpt4o_response' not in st.session_state:
+    st.session_state.gpt4o_response = None
+if 'llm_eval' not in st.session_state:
+    st.session_state.llm_eval = None
+if 'current_page' not in st.session_state:
+    st.session_state.current_page = "home"
 
 
 # Ask the user for a question via `st.text_area`.
@@ -27,13 +33,6 @@ action = st.text_area("Describe how you would like the LLM to assess the situati
 # Let the user upload a file via `st.file_uploader`.
 uploaded_file = st.file_uploader("Upload a document (.txt or .md)", type=("txt", "md"))
 
-# Initialize session state for storing responses
-if 'gpt4o_response' not in st.session_state:
-    st.session_state.gpt4o_response = None
-if 'llm_eval' not in st.session_state:
-    st.session_state.llm_eval = None
-if 'current_page' not in st.session_state:
-    st.session_state.current_page = "home"
 
 if (uploaded_file or question) and action:
  if st.button("Next"):
@@ -95,14 +94,14 @@ if (uploaded_file or question) and action:
         ).choices[0].message.content
 
         # Navigate to the home page
-    #st.session_state.current_page = "home"
-    #st.rerun()
+    st.session_state.current_page = "home"
+    st.rerun()
 
-    def go_back():
-     st.session_state.current_page = "home"
-     st.rerun()
+def go_back():
+  st.session_state.current_page = "home"
+  st.rerun()
 
-    if st.session_state.current_page == "home":
+if st.session_state.current_page == "home":
          st.write("Select which response you'd like to view:")
 
          if st.button("Show GPT-4o Response"):
@@ -113,7 +112,7 @@ if (uploaded_file or question) and action:
             st.session_state.current_page = "llm_eval"
             st.rerun()
 
-    if st.session_state.current_page == "gpt4o_response":
+elif st.session_state.current_page == "gpt4o_response":
        if st.session_state.gpt4o_response:
            st.write(st.session_state.gpt4o_response)
        else:
@@ -121,7 +120,7 @@ if (uploaded_file or question) and action:
        if st.button("Back"):
            go_back()
 
-    if st.session_state.current_page == "llm_eval":
+elif st.session_state.current_page == "llm_eval":
        if st.session_state.llm_eval:
             st.write(st.session_state.llm_eval)
        else:
