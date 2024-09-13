@@ -57,7 +57,7 @@ if (uploaded_file or question) and action:
         prompt_main += ("Context: " + document)
     
         # Generate an answer using the OpenAI API.
-    gpt4o_response = client.chat.completions.create(
+    st.session_state.gpt4o_response = client.chat.completions.create(
             model="gpt-4o",
           messages=[
           {"role": "system", "content":prompt_main}],stream=False).choices[0].message.content
