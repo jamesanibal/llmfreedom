@@ -95,8 +95,8 @@ if (uploaded_file or question) and action:
         ).choices[0].message.content
 
         # Navigate to the home page
-        st.session_state.current_page = "home"
-        st.experimental_rerun()
+    st.session_state.current_page = "home"
+    st.experimental_rerun()
 
 
     def go_back():
