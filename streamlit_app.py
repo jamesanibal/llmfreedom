@@ -53,8 +53,8 @@ if (uploaded_file or question) and action:
         # Generate an answer using the OpenAI API.
     gpt4o_response = client.chat.completions.create(
             model="gpt-4o",
-            messages=messages,
-            stream=False).choices[0].message.content
+          messages=[
+          {"role": "system", "content":prompt_main}],stream=False).choices[0].message.content
     
     #### messages
     eval_prompt = """
