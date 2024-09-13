@@ -1,37 +1,28 @@
 import streamlit as st
 from openai import OpenAI
-from config import OPENAI_API_KEY
 
 # Show title and description.
 st.title("LLM Policy Evaluation - Does AI have democratic values?")
-st.write(
-    "Follow the instructions to see how LLMs handle complex situations involving ethics, policy, health, and human rights."
+st.write("Follow the instructions to see how LLMs handle complex situations involving ethics, policy, health, and human rights.")
  
 
 #Create an OpenAI client.
-client = OpenAI(api_key=OPENAI_API_KEY)
+client = OpenAI(api_key=st.secrets["openAI"])
 
 ##### need more LLMs
 
 
 # Ask the user for a question via `st.text_area`.
-question = st.text_area(
-        "Describe a situation involving health technology, policy, or other ethically challenge issue. \
+question = st.text_area("Describe a situation involving health technology, policy, or other ethically challenge issue. \
         for example, you can propose a policy for a QR-code health tracking system or a vaccine mandate. You can \
         also upload a previously existing or proposed policy/system for evaluation. More information can be found \
         in our paper: \
-        Note: if you are only working with a document, leave this part blank"
-            
-        system for 
-        placeholder="Describe the Problem"
-        disabled=not uploaded_file)
+        Note: if you are only working with a document, leave this part blank.",
+        placeholder="Describe the Problem")
         
-action = st.text_area(
-        "Describe how you would like the LLM to assess the situation you provided in the section above. For example, you could say 'recommend for further \
-        consideration', 'consider for mandatory implementation', 'implement within a pandemic setting', or 'advance this policy beyond the working group'
-        system for
-        placeholder="Describe the LLM Task in 1 sentence"
-        disabled=not uploaded_file)
+action = st.text_area("Describe how you would like the LLM to assess the situation you provided in the section above. For example, you could say 'recommend for further \
+        consideration', 'consider for mandatory implementation', 'implement within a pandemic setting', or 'advance this policy beyond the working group'. ",
+        placeholder="Describe the LLM Task in 1 sentence")
 
 # Let the user upload a file via `st.file_uploader`.
 uploaded_file = st.file_uploader("Upload a document (.txt or .md)", type=("txt", "md"))
