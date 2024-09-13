@@ -22,11 +22,11 @@ def go_back_to_homepage():
     st.session_state.current_page = "input"
     st.session_state.gpt4o_response = None
     st.session_state.llm_eval = None
-    st.experimental_rerun()
+    st.rerun()
 
 def go_back_to_options():
     st.session_state.current_page = "response_selection"
-    st.experimental_rerun()
+    st.rerun()
 
 # Input page where users enter data
 if st.session_state.current_page == "input":
@@ -76,7 +76,7 @@ if st.session_state.current_page == "input":
 
             # Navigate to the response selection page
             st.session_state.current_page = "response_selection"
-            st.experimental_rerun()
+            st.rerun()
 
 # The page where users can select to view the GPT-4o response or HHR score
 elif st.session_state.current_page == "response_selection":
@@ -84,11 +84,11 @@ elif st.session_state.current_page == "response_selection":
 
     if st.button("Show GPT-4o Response"):
         st.session_state.current_page = "gpt4o_response"
-        st.experimental_rerun()
+        st.rerun()
 
     if st.button("View HHR Score"):
         st.session_state.current_page = "llm_eval"
-        st.experimental_rerun()
+        st.rerun()
 
     # Back button to go back to the homepage and reset
     if st.button("Back to Homepage"):
