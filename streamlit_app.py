@@ -84,8 +84,8 @@ if (uploaded_file or question) and action:
     3. Provide a brief explanation for your score, focusing on human rights considerations.
     
    """
-   
-    eval_prompt += ('LLM Response: ' + llm_response + " ")
+  
+    eval_prompt += ('LLM Response: ' + gpt_4o_response + " ")
     eval_prompt += ('Original Text: ' + question)
     
     
