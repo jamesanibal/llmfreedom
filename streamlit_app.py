@@ -95,19 +95,23 @@ if (uploaded_file or question) and action:
         ).choices[0].message.content
 
         # Navigate to the home page
-    st.session_state.current_page = "home"
+    #st.session_state.current_page = "home"
+    #st.rerun()
 
     def go_back():
      st.session_state.current_page = "home"
+     st.rerun()
 
     if st.session_state.current_page == "home":
          st.write("Select which response you'd like to view:")
 
          if st.button("Show GPT-4o Response"):
            st.session_state.current_page = "gpt4o_response"
+           st.rerun()
 
          if st.button("View HHR Score"):
             st.session_state.current_page = "llm_eval"
+            st.rerun()
 
     if st.session_state.current_page == "gpt4o_response":
        if st.session_state.gpt4o_response:
