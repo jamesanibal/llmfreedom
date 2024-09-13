@@ -85,7 +85,7 @@ if (uploaded_file or question) and action:
     
    """
   
-    eval_prompt += ('LLM Response: ' + gpt_4o_response + " ")
+    eval_prompt += ('LLM Response: ' + gpt4o_response + " ")
     eval_prompt += ('Original Text: ' + question)
     
     
