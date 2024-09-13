@@ -34,6 +34,7 @@ if st.session_state.current_page == "input":
         for example, you can propose a policy for a QR-code health tracking system or a vaccine mandate. You can \
         also upload a previously existing or proposed policy/system for evaluation. More information can be found \
         in our paper: https://www.medrxiv.org/content/10.1101/2024.04.10.24305470v2 \
+        
         Note: if you are only working with a document, leave this part blank"
     )
 
