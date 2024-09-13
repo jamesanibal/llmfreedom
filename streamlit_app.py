@@ -114,31 +114,6 @@ elif st.session_state.current_page == "response_selection":
     if st.button("Back to Homepage"):
         go_back_to_homepage()
 
-    st.markdown("<br><br><br>", unsafe_allow_html=True)  # Adding empty space
-    st.markdown(
-        """
-        <style>
-        .homepage-button {
-            background-color: #ff4b4b;
-            color: white;
-            padding: 12px 20px;
-            font-size: 18px;
-            border-radius: 8px;
-            border: none;
-            cursor: pointer;
-            margin-top: 20px;
-        }
-        .homepage-button:hover {
-            background-color: #ff1f1f;
-        }
-        </style>
-        """, 
-        unsafe_allow_html=True
-    )
-    
-    if st.markdown('<button class="homepage-button">Return to Homepage</button>', unsafe_allow_html=True):
-        go_back_to_homepage()
-
 # The page showing GPT-4o response
 elif st.session_state.current_page == "gpt4o_response":
     if st.session_state.gpt4o_response:
