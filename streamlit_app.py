@@ -29,7 +29,7 @@ uploaded_file = st.file_uploader("Upload a document (.txt or .md)", type=("txt",
 
 
 if (uploaded_file or question) and action:
-    
+ if st.button("Next"):
     if uploaded_file and question:
         document = uploaded_file.read().decode()
         # Process the uploaded file and question.
