@@ -3,7 +3,7 @@ import sqlite3
 from openai import OpenAI
 
 # Show title and description.
-st.title("LLM Policy Evaluation - Does AI have democratic values?")
+st.title("LLM Ethics Evaluation")
 st.write("Follow the instructions to see how LLMs handle complex situations involving ethics, policy, health, and human rights.")
 
 # Create an OpenAI client.
