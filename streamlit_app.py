@@ -85,8 +85,8 @@ if (uploaded_file or question) and action:
     
    """
    
-   eval_prompt += ('LLM Response: ' + llm_response + " ")
-   eval_prompt += ('Original Text: ' + question)
+    eval_prompt += ('LLM Response: ' + llm_response + " ")
+    eval_prompt += ('Original Text: ' + question)
     
     
     o1_eval = client.chat.completions.create(
