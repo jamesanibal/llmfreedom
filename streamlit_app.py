@@ -109,7 +109,7 @@ if (uploaded_file or question) and action:
          if st.button("View HHR Score"):
             st.session_state.current_page = "llm_eval"
 
-    elif st.session_state.current_page == "gpt4o_response":
+    if st.session_state.current_page == "gpt4o_response":
        if st.session_state.gpt4o_response:
            st.write(st.session_state.gpt4o_response)
        else:
@@ -117,7 +117,7 @@ if (uploaded_file or question) and action:
        if st.button("Back"):
            go_back()
 
-    elif st.session_state.current_page == "llm_eval":
+    if st.session_state.current_page == "llm_eval":
        if st.session_state.llm_eval:
             st.write(st.session_state.llm_eval)
        else:
