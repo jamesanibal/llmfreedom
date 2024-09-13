@@ -101,19 +101,15 @@ if (uploaded_file or question) and action:
 
     def go_back():
      st.session_state.current_page = "home"
-     st.experimental_rerun()
-
 
     if st.session_state.current_page == "home":
          st.write("Select which response you'd like to view:")
 
          if st.button("Show GPT-4o Response"):
            st.session_state.current_page = "gpt4o_response"
-           st.experimental_rerun()
 
          if st.button("View HHR Score"):
             st.session_state.current_page = "llm_eval"
-            st.experimental_rerun()
 
     elif st.session_state.current_page == "gpt4o_response":
        if st.session_state.gpt4o_response:
