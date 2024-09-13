@@ -96,8 +96,6 @@ if (uploaded_file or question) and action:
 
         # Navigate to the home page
     st.session_state.current_page = "home"
-    st.experimental_rerun()
-
 
     def go_back():
      st.session_state.current_page = "home"
